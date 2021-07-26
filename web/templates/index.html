@@ -1,0 +1,182 @@
+{% block head %}
+
+{% load static %}
+
+<!DOCTYPE html>
+<html dir="ltr" lang="es-ES">
+    <head><!-- Created by Artisteer v4.3.0.60745 -->
+    <meta charset="utf-8">
+    <title>Simply Poetry</title>
+    <meta name="viewport" content="initial-scale = 1.0, maximum-scale = 1.0, user-scalable = no, width = device-width">
+<meta name='robots' content='index,nofollow'>
+<meta name="keywords" content="poems, poetry, blog">
+        <meta name=description content='Simply Poetry type APP'>
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap" rel="stylesheet">
+    <!--[if lt IE 9]><script src="https://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+    <link rel="stylesheet" href="{% static 'style.css'%}" media="screen">
+    <!--[if lte IE 7]><link rel="stylesheet" href="{% static 'style.ie7.css'%}" media="screen" /><![endif]-->
+    <link rel="stylesheet" href="{% static 'style.responsive.css'%}" media="all">
+
+<link rel="shortcut icon" href="{% static 'favicon.ico'%}" type="image/x-icon">
+    <script src="{% static 'jquery.js'%}"></script>
+    <script src="{% static 'script.js'%}"></script>
+    <script src="{% static 'script.responsive.js'%}"></script>
+
+
+<style>.art-content .art-postcontent-0 .layout-item-0 { margin-bottom: 10px;  }
+.art-content .art-postcontent-0 .layout-item-1 { border-spacing: 10px 0px; border-collapse: separate;  }
+.art-content .art-postcontent-0 .layout-item-2 { border-top-style:solid;border-right-style:solid;border-bottom-style:solid;border-left-style:solid;border-top-width:1px;border-right-width:1px;border-bottom-width:1px;border-left-width:1px;border-top-color:#CFD8E2;border-right-color:#CFD8E2;border-bottom-color:#CFD8E2;border-left-color:#CFD8E2; color: #1F2833; background: #F6F7F8; padding-right: 10px;padding-left: 10px;  }
+.ie7 .art-post .art-layout-cell {border:none !important; padding:0 !important; }
+.ie6 .art-post .art-layout-cell {border:none !important; padding:0 !important; }
+
+</style></head>
+{% endblock %}
+
+    <body>
+<div id="art-main">
+    <div class="art-sheet clearfix">
+<header class="art-header">
+
+    <div class="art-shapes">
+        
+            </div>
+
+<h1 class="art-headline">
+    <a href="/">SIMPLY_POETRY</a>
+</h1>
+
+
+
+
+
+                
+                    
+</header>
+<div class="art-layout-wrapper">
+                <div class="art-content-layout">
+                    <div class="art-content-layout-row">
+                        <div class="art-layout-cell art-content">
+                            {% block content %}
+
+                            <article class="art-post art-article">
+                                
+                                                
+                <div class="art-postcontent art-postcontent-0 clearfix"><div class="art-content-layout-wrapper layout-item-0">
+<div class="art-content-layout layout-item-1">
+    <div class="art-content-layout-row">
+    <div class="art-layout-cell layout-item-2" style="width: 100%" >
+        <h3><span style="font-family: 'Gloria Hallelujah', Arial, 'Arial Unicode MS', Helvetica, sans-serif; line-height: 26px; color: #AC6280;">AUTHOR</span> <span style="line-height: 26px; color: #AC6280;">MISC</span><br></h3>
+        <table>
+            <tr>
+                <td style="padding: 10px;width: 60%">
+        <p>Lets check what the muses play and say.</p><p>This its just an approach to an app for publishing poetry</p>
+                    <blockquote>Tan solo palabras</blockquote>
+        <blockquote>¿Que sería de mi historia, mis vivencias, mis memorias?</blockquote>
+                </td>
+            <td style="padding: 10px;width: 40%">
+
+                <div style="text-align: center;">
+                <img src="{% static 'images/yo.jpg' %}" alt="" width="80%">
+                </div><BR>
+                <p style="text-align: center">Created by Yago Otero(jokersoftware.info)</p>
+            </td>
+            </tr></table>   
+    </div>
+    </div>
+</div>
+</div>
+<div class="art-content-layout-wrapper layout-item-0">
+<div class="art-content-layout layout-item-1">
+    <div class="art-content-layout-row">
+
+
+        <div class="art-layout-cell layout-item-2" style="width: 67%" >
+        <h3>MY LAST POEM</h3>
+        <blockquote style="margin:0px">
+            <pre>{{LAST_POEM.text}}</pre><br>
+
+            Author:{{ LAST_POEM.auth }}<br>
+            Date Posted:{{ LAST_POEM.date_create }}
+        </blockquote>
+    </div>
+        <div class="art-layout-cell layout-item-2" style="width: 33%" >
+        <h3>MY FEELINGS</h3><p>{{LAST_POEM.my_feeling}}<br></p>
+
+        <h3>YOUR FEELINGS</h3>
+        <div style="text-align: center;">
+            <a style="text-align: center" class="art-button" href="{% url 'C_YF' LAST_POEM.pk %}">Share your thought</a>
+        </div>
+            {% for Y in YF %}
+            <p>{{ Y.name }}: {{Y.y_feels}}<br></p>
+
+                {% endfor %}
+    </div>
+
+    </div>
+</div>
+</div>
+<div class="art-content-layout-wrapper layout-item-0">
+<div class="art-content-layout layout-item-1">
+    <div class="art-content-layout-row">
+    <div class="art-layout-cell layout-item-2" style="width: 100%" >
+        <h3>MY MUSIC PROMO</h3><br>
+
+        {% load embed_video_tags %}
+
+<!-- The video tag: -->
+{% video VIDEO_PROMO.video as my_video %}
+    {% video my_video 'tiny' %}
+{% endvideo %}
+    </div>
+    </div>
+</div>
+</div>
+</div>
+
+
+</article>
+                        {% endblock %}
+                        </div>
+                        <div class="art-layout-cell art-sidebar1"><div class="art-block clearfix">
+        <div class="art-blockheader">
+            <h3 class="t">Archives</h3>
+        </div>
+        <div class="art-blockcontent"><div>
+  <ul>
+      {% for O in TOTALPOEMS %}
+    <li>
+      <a href="#" title="{{ O.date_create }}">{{ O.date_create }}</a>
+    </li>
+    {% endfor %}
+  </ul>
+</div></div>
+</div><div class="art-block clearfix">
+        <div class="art-blockheader">
+            <h3 class="t">Efemerids</h3>
+        </div>
+        <div class="art-blockcontent"><div style="width:209px"><iframe style="background-color:transparent; overflow-x:hidden; float:left; border:none;" width="209" height="330" src="https://www.hechoshistoricos.es/dispositivo/hechoshistoricosgadgetdeldia162.html"></iframe><a style="font-size:13px; padding-left:27px; float:left" href="https://www.hechoshistoricos.es" title="Más efemérides importantes">www.hechoshistoricos.es</a></div></div>
+</div><div class="art-block clearfix">
+        <div class="art-blockheader">
+            <h3 class="t">My books</h3>
+        </div>
+        <div class="art-blockcontent">
+            <ul>
+                <li>
+            <a href="https://www.amazon.es/Yago-Otero/e/B08FRRG2R3?ref=sr_ntt_srch_lnk_2&qid=1627293095&sr=1-2">Enlace a Amazon</a></li></ul></div>
+</div></div>
+                    </div>
+                </div>
+            </div><footer class="art-footer">
+<p><a href="#">Link1</a> | <a href="#">Link2</a> | <a href="#">Link3</a></p>
+<p>Copyright © 2021. All Rights Reserved.</p>
+</footer>
+
+    </div>
+</div>
+
+
+</body></html>

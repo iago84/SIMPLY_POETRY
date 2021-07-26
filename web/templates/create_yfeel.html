@@ -1,0 +1,33 @@
+{% extends 'index.html' %}
+
+{% block content %}
+
+    <article class="art-post art-article">
+
+
+                <div class="art-postcontent art-postcontent-0 clearfix">
+                    <div class="art-content-layout-wrapper layout-item-0">
+<div class="art-content-layout layout-item-1">
+    <div class="art-content-layout-row">
+    <div class="art-layout-cell layout-item-2" style="width: 100%" >
+        <h3><span style="font-family: 'Gloria Hallelujah', Arial, 'Arial Unicode MS', Helvetica, sans-serif; line-height: 26px; color: #AC6280;">SHARE YOUR FEELING</span><br></h3>
+
+        <form action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form.as_ul }}
+            <input type="submit" value="Share">
+        </form>
+    </div>
+    </div>
+</div>
+</div>
+
+
+</div>
+
+
+</article>
+
+
+
+{% endblock %}
