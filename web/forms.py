@@ -7,3 +7,4 @@ class C_YF(ModelForm):
     class Meta:
         model = YOURFEELS
         fields = '__all__'
+        exclude= ['own_poem']

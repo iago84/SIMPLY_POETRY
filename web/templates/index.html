@@ -149,7 +149,7 @@
   <ul>
       {% for O in TOTALPOEMS %}
     <li>
-      <a href="#" title="{{ O.date_create }}">{{ O.date_create }}</a>
+      <a href="{% url 'Archive' O.pk %}" title="{{ O.date_create }}">{{ O.date_create }}</a>
     </li>
     {% endfor %}
   </ul>

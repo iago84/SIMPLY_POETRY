@@ -1,0 +1,60 @@
+{% extends 'index.html' %}
+
+{% block content %}
+
+
+                            <article class="art-post art-article">
+
+
+                <div class="art-postcontent art-postcontent-0 clearfix">
+<div class="art-content-layout-wrapper layout-item-0">
+<div class="art-content-layout layout-item-1">
+    <div class="art-content-layout-row">
+
+
+        <div class="art-layout-cell layout-item-2" style="width: 67%" >
+        <h3>ARCHIVE {{ obj.date_create }}</h3>
+        <blockquote style="margin:0px">
+            <pre>{{obj.text}}</pre><br>
+
+            Author:{{ obj.auth }}<br>
+            Date Posted:{{ obj.date_create }}
+        </blockquote>
+    </div>
+        <div class="art-layout-cell layout-item-2" style="width: 33%" >
+        <h3>MY FEELINGS</h3><p>{{obj.my_feeling}}<br></p>
+
+        <h3>YOUR FEELINGS</h3>
+        <div style="text-align: center;">
+            <a style="text-align: center" class="art-button" href="{% url 'C_YF' obj.pk %}">Share your thought</a>
+        </div>
+            {% for Y in YF %}
+            <p>{{ Y.name }}: {{Y.y_feels}}<br></p>
+
+                {% endfor %}
+    </div>
+
+    </div>
+</div>
+</div>
+<div class="art-content-layout-wrapper layout-item-0">
+<div class="art-content-layout layout-item-1">
+    <div class="art-content-layout-row">
+    <div class="art-layout-cell layout-item-2" style="width: 100%" >
+        <h3>MY MUSIC PROMO</h3><br>
+
+        {% load embed_video_tags %}
+
+<!-- The video tag: -->
+{% video VIDEO_PROMO.video as my_video %}
+    {% video my_video 'tiny' %}
+{% endvideo %}
+    </div>
+    </div>
+</div>
+</div>
+</div>
+
+
+</article>
+                        {% endblock %}

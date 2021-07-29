@@ -23,6 +23,7 @@ from SIMPLY_POETRY import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',web.views.Index.as_view(),name='Index'),
-    path('c_yf/<pk>',web.views.CREATE_YFEEL.as_view(),name='C_YF')
+    path('c_yf/<pk>',web.views.CREATE_YFEEL.as_view(),name='C_YF'),
+    path('archive/<pk>',web.views.SEEARCHIVE.as_view(),name='Archive')
 ]+ static(settings.STATIC_URL, document_root=settings.STATIC_ROOT) + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
